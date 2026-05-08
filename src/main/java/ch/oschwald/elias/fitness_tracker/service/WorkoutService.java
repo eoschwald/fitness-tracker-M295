@@ -66,7 +66,7 @@ public class WorkoutService {
     }
 
     @Transactional
-    public Workout updateWorkout(Long id, Workout updatedWorkout) {
+    public WorkoutResponse updateWorkout(Long id, Workout updatedWorkout) {
         Workout existingWorkout = workoutRepository.findById(id)
                 .orElseThrow(() -> new NotFoundException("Workout mit ID " + id + " wurde nicht gefunden"));
 
@@ -74,7 +74,8 @@ public class WorkoutService {
         existingWorkout.setDescription(updatedWorkout.getDescription());
         existingWorkout.setWorkoutDate(updatedWorkout.getWorkoutDate());
 
-        return workoutRepository.save(existingWorkout);
+        Workout savedWorkout = workoutRepository.save(existingWorkout);
+        return WorkoutMapper.toResponse(savedWorkout);
     }
 
     @Transactional

@@ -48,8 +48,7 @@ public class WorkoutController {
     public WorkoutResponse updateWorkout(@PathVariable Long id,
                                          @Valid @RequestBody WorkoutRequest request) {
         Workout workout = WorkoutMapper.toEntity(request);
-        Workout updatedWorkout = workoutService.updateWorkout(id, workout);
-        return WorkoutMapper.toResponse(updatedWorkout);
+        return workoutService.updateWorkout(id, workout);
     }
 
     @DeleteMapping("/{id}")
