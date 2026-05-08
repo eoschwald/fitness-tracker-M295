@@ -29,15 +29,12 @@ public class WorkoutController {
 
     @GetMapping
     public List<WorkoutResponse> getAllWorkouts() {
-        return workoutService.getAllWorkouts()
-                .stream()
-                .map(WorkoutMapper::toResponse)
-                .toList();
+        return workoutService.getAllWorkouts();
     }
 
     @GetMapping("/{id}")
     public WorkoutResponse getWorkoutById(@PathVariable Long id) {
-        return WorkoutMapper.toResponse(workoutService.getWorkoutById(id));
+        return workoutService.getWorkoutById(id);
     }
 
     @PostMapping
