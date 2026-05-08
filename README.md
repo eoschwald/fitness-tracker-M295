@@ -2,6 +2,8 @@
 
 Backend-Applikation zur Verwaltung von Fitnessaktivitäten mit Spring Boot, REST, PostgreSQL, JPA, Keycloak und Swagger/OpenAPI.
 
+## GitHub Repo
+-https://github.com/eoschwald/fitness-tracker-M295
 ## Funktionen
 
 - Benutzerverwaltung
